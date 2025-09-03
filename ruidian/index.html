@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Distansjobb | Ansök Online</title>
+  <meta name="description" content="Ansök om flexibla distansjobb och uppdrag. Jobba hemifrån eller var som helst. Inga ansökningsavgifter. Transparenta villkor och integritet först." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17462482672"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17462482672');
+  </script>
+
+  <style>
+    :root{
+      --bg:#1a365d;
+      --card:#2d3748;
+      --muted:#a0aec0;
+      --text:#e2e8f0;
+      --white:#ffffff;
+      --primary:#f56565;
+      --primary-600:#e53e3e;
+      --primary-300:#fc8181;
+      --secondary:#38b2ac;
+      --blue:#4299e1;
+      --ring: 0 0 0 3px rgba(245, 101, 101, 0.25);
+      --radius:12px;
+      --transition: all 0.3s ease;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:#2a4365;color:var(--text);font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;line-height:1.4; font-size: 15px;}
+    img{max-width:100%;display:block}
+    a{color:var(--text);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{width:min(1120px,92%);margin-inline:auto}
+
+    .nav{position:sticky;top:0;z-index:50;background:rgba(42, 67, 101, 0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+    .brand{font-weight:800;letter-spacing:.3px;font-size:1.2rem;color: var(--white);}
+    .nav-links{display:flex;gap:16px;align-items:center}
+    .nav-link{opacity:.85; transition: var(--transition); font-size: 0.95rem;}
+    .nav-link:hover{opacity:1; color: var(--primary);}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;border-radius:10px;border:0;font-weight:600;cursor:pointer;transition:var(--transition); font-size: 0.95rem;}
+    .btn-lg{padding:12px 28px;font-size:1.05rem;}
+    .btn-block{width:100%}
+    .btn-primary{background:var(--primary);color:#fff; box-shadow: 0 4px 10px rgba(245, 101, 101, 0.25);}
+    .btn-primary:hover{background:var(--primary-600); transform: translateY(-2px); box-shadow: 0 6px 14px rgba(245, 101, 101, 0.35);}
+    .btn:focus{outline:none;box-shadow:var(--ring)}
+    
+    .hero{position:relative;padding:60px 0 30px; overflow: hidden;}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:stretch}
+    .hero-copy h1{font-size:38px;margin:0 0 10px; line-height: 1.2; font-weight: 800; color: var(--white);}
+    .subtitle{color:var(--muted);max-width:48ch;margin-bottom:14px; font-size: 1.05rem;}
+    .hero-points{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px;color:#cfd5dd; font-weight: 500;}
+    .hero-points li {display: flex; align-items: center; gap: 8px; font-size: 0.95rem;}
+    .hero-points li:before {content: "✓"; color: var(--secondary); font-weight: bold;}
+    
+    .hero-bg{position:absolute;inset:0;z-index:-1;background:
+        linear-gradient(180deg,rgba(26, 53, 93, 0.85),rgba(26, 53, 93, 0.95)),
+        url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80') center/cover no-repeat;}
+
+    .logos{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px; align-items: center;}
+    .logo{font-size:13px;padding:8px 14px;border:1px dashed rgba(255,255,255,.15);border-radius:10px;color:#cfd5dd;background:rgba(255,255,255,.03); transition: var(--transition);}
+    .logo:hover {transform: translateY(-2px); border-color: var(--primary); color: var(--white);}
+
+    .form-card{background:var(--card);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:24px; box-shadow: 0 16px 32px rgba(0,0,0,0.2); position: relative;}
+    .form-card:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .form-title{margin:0 0 8px; font-size: 22px; color: var(--white);}
+    .form-note{color:var(--muted);margin:0 0 14px;font-size:0.92rem; line-height: 1.5;}
+    .field{margin-bottom:14px; position: relative;}
+    .field.check{display:flex;align-items:flex-start; gap: 8px;}
+    .field.check label {margin-bottom: 0; display: inline; font-weight: normal;}
+    label{display:block;margin-bottom:6px;font-weight:600; font-size: 0.92rem; color: var(--white);}
+    .req{color:var(--secondary)}
+    input,select{width:100%;background:#4a5568;color:var(--text);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:12px 14px;outline:none; font-family: inherit; font-size: 0.95rem; transition: var(--transition);}
+    input:focus,select:focus{box-shadow:var(--ring);border-color:var(--primary); transform: translateY(-1px);}
+    .form-status{margin-top:14px;font-size:0.92rem; padding: 10px; border-radius: 8px; background: rgba(56, 178, 172, 0.1); border: 1px solid rgba(56, 178, 172, 0.2);}
+    .form-status.success{color:#38b2ac}
+    .form-status.error{color:#fc8181; background: rgba(252, 129, 129, 0.1); border-color: rgba(252, 129, 129, 0.2);}
+
+    .phone-input-group {display: flex;}
+    .country-code {flex: 0 0 auto; background: rgba(255,255,255,0.05); padding: 12px 14px; border: 1px solid rgba(255,255,255,.15); border-right: none; border-radius: 10px 0 0 10px; display: flex; align-items: center; gap: 8px;}
+    .phone-input {border-radius: 0 10px 10px 0; flex: 1;}
+    
+    .progress-bar {display: flex; margin: 16px 0; gap: 6px;}
+    .progress-step {flex: 1; height: 5px; background: rgba(255,255,255,0.1); border-radius: 3px;}
+    .progress-step.active {background: var(--primary);}
+
+    /* Modal styles */
+    .modal {position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.3s ease;}
+    .modal.active {opacity: 1; visibility: visible;}
+    .modal-content {background: var(--card); border-radius: var(--radius); padding: 24px; max-width: 400px; width: 90%; text-align: center;}
+    .modal-title {font-size: 1.5rem; margin-bottom: 16px; color: var(--primary);}
+    .modal-message {margin-bottom: 24px; line-height: 1.5;}
+    .modal-btn {background: var(--primary); color: #fff; border: none; border-radius: 8px; padding: 10px 20px; font-weight: 600; cursor: pointer; transition: var(--transition);}
+    .modal-btn:hover {background: var(--primary-600);}
+
+    /* Close button for modal */
+    .modal-close { position: absolute; top: 10px; right: 12px; background: transparent; border: none; font-size: 22px; color: var(--muted); cursor: pointer; }
+    .modal-close:hover { color: var(--text); }
+
+    .section{padding:60px 0}
+    .section.alt{background:#2a4365}
+    h2{margin:0 0 14px;font-size:32px; font-weight: 800; color: var(--white);}
+    .muted{color:var(--muted); line-height: 1.5;}
+    .small{font-size:0.88rem}
+    
+    .section-header {text-align: center; max-width: 700px; margin: 0 auto 40px;}
+    
+    .cards{display:grid;gap:20px}
+    .two-col{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .three-col{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:20px; transition: var(--transition);}
+    .card:hover {transform: translateY(-3px); border-color: rgba(255,255,255,0.15); box-shadow: 0 8px 24px rgba(0,0,0,0.15);}
+    .card-media{height:140px;border-radius:10px;background:linear-gradient(135deg,#2d3748,#4a5568); position: relative; overflow: hidden;}
+    .card-media:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(56, 178, 172, 0.1), rgba(66, 153, 225, 0.1));
+    }
+    .media-pt{background-image:linear-gradient(135deg,#2d3748,#4a5568)}
+    .media-ft{background-image:linear-gradient(135deg,#2d3748,#4a5568)}
+    .card-body h3{margin:14px 0 10px; font-size: 1.3rem; color: var(--white);}
+    
+    .earnings-badge {background: var(--secondary); color: var(--white); padding: 3px 10px; border-radius: 18px; font-weight: 700; font-size: 0.86rem; display: inline-block; margin-bottom: 10px;}
+    
+    .list{padding-left:0;margin:0;display:grid;gap:8px}
+    .list li{margin-left:0; display: flex; align-items: flex-start; gap: 8px; font-size: 0.92rem;}
+    .list li:before {content: "•"; color: var(--primary); font-weight: bold;}
+    
+    .bonus{text-align:center; position: relative;}
+    .bonus-icon{font-size:32px;margin-bottom:10px; display: inline-flex; width: 60px; height: 60px; background: rgba(245, 101, 101, 0.1); border-radius: 50%; align-items: center; justify-content: center;}
+    .bonus:hover .bonus-icon {transform: scale(1.05); transition: var(--transition);}
+    
+    .requirements{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+    .req-item{display:flex;gap:10px;background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px; transition: var(--transition);}
+    .req-item:hover {border-color: rgba(245, 101, 101, 0.3); transform: translateY(-2px);}
+    .req-icon{font-size:22px; color: var(--primary);}
+    
+    .benefits-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+    .benefits-media{height:240px;border-radius:12px;background:
+        radial-gradient(120px 120px at 30% 40%, #2d3748 0%, transparent 60%),
+        linear-gradient(135deg,#2a4365,#2d3748); position: relative; overflow: hidden;}
+    .benefits-media:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80') center/cover no-repeat;
+        opacity: 0.4;
+        mix-blend-mode: overlay;
+    }
+    .stats{list-style:none;padding:0;margin:0 0 14px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .stats li{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px;text-align:center; transition: var(--transition);}
+    .stats li:hover {transform: translateY(-2px); border-color: rgba(245, 101, 101, 0.3);}
+    .stats strong {display: block; font-size: 1.6rem; color: var(--primary); margin-bottom: 4px;}
+    
+    .testimonial{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:20px;margin:0; position: relative; transition: var(--transition);}
+    .testimonial:hover {transform: translateY(-2px); border-color: rgba(255,255,255,0.15);}
+    .testimonial:before {
+        content: """;
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        font-size: 50px;
+        color: rgba(245, 101, 101, 0.2);
+        font-family: Georgia, serif;
+    }
+    .testimonial p{margin:0 0 14px; font-style: italic; position: relative; z-index: 1; font-size: 0.95rem;}
+    .testimonial footer {color: var(--primary); font-weight: 600; font-size: 0.92rem;}
+    
+    .avatar {width: 44px; height: 44px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: 700; margin-bottom: 10px; font-size: 1.1rem;}
+    
+    .cta{background:linear-gradient(180deg,#2a4365,#1a365d); padding: 60px 0; text-align: center;}
+    .cta-inner{max-width: 700px; margin: 0 auto;}
+    .cta h2 {margin-bottom: 14px;}
+    
+    .faq{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:16px;margin-bottom:14px; transition: var(--transition);}
+    .faq:hover {border-color: rgba(255,255,255,0.15);}
+    .faq summary{cursor:pointer; font-weight: 600; padding: 6px 0; font-size: 0.95rem; color: var(--white);}
+    .faq div {padding: 10px 0; color: var(--muted); font-size: 0.92rem;}
+    
+    .footer{border-top:1px solid rgba(255,255,255,.08);padding:32px 0 20px;background:#2a4365}
+    .footer-grid{display:flex;justify-content:space-between;gap:18px;align-items:flex-start; margin-bottom: 20px;}
+    .footer-links{display:flex;gap:16px;flex-wrap:wrap}
+    
+    .security-badge {display: flex; align-items: center; gap: 8px; margin-top: 14px; padding: 10px; background: rgba(56, 178, 172, 0.1); border-radius: 8px; font-size: 0.86rem;}
+    .security-badge svg {flex-shrink: 0; width: 18px; height: 18px;}
+    
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.5s ease forwards;
+    }
+    
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+    
+    /* Pulse animation for CTA */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr; gap: 28px;}
+      .two-col{grid-template-columns:1fr; gap: 18px;}
+      .three-col{grid-template-columns:1fr; gap: 18px;}
+      .requirements{grid-template-columns:repeat(2,minmax(0,1fr)); gap: 12px;}
+      .benefits-grid{grid-template-columns:1fr; gap: 20px;}
+      .cta-inner{flex-direction:column;align-items:flex-start}
+      .stats{grid-template-columns:1fr; gap: 12px;}
+      .hero-copy h1 {font-size: 32px;}
+      h2 {font-size: 28px;}
+      .section {padding: 50px 0;}
+      .section-header {margin-bottom: 32px;}
+    }
+    
+    @media (max-width: 640px) {
+      .nav-links {gap: 10px;}
+      .btn {padding: 9px 16px; font-size: 0.92rem;}
+      .btn-lg {padding: 10px 22px;}
+      .footer-grid {flex-direction: column; gap: 20px;}
+      .footer-links {flex-direction: column; gap: 10px;}
+      .requirements {grid-template-columns: 1fr; gap: 10px;}
+      .hero {padding: 50px 0 24px;}
+      .hero-copy h1 {font-size: 28px;}
+      h2 {font-size: 26px;}
+      .section {padding: 40px 0;}
+      .cta {padding: 50px 0;}
+      .logos {justify-content: center;}
+      .form-card {padding: 20px;}
+      .card {padding: 18px;}
+      .testimonial {padding: 18px;}
+      .stats li {padding: 12px;}
+      .benefits-media {height: 200px;}
+    }
+    
+    @media (max-width: 480px) {
+      .hero-copy h1 {font-size: 26px;}
+      h2 {font-size: 24px;}
+      .brand {font-size: 1.1rem;}
+      .nav-link {font-size: 0.9rem;}
+      .btn {font-size: 0.9rem;}
+      .hero-points li {font-size: 0.9rem;}
+      .subtitle {font-size: 1rem;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Nav -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Inicio">Distansjobb</a>
+      <nav class="nav-links">
+        <a href="#roles" class="nav-link">Roller</a>
+        <a href="#benefits" class="nav-link">Förmåner</a>
+        <a href="#faq" class="nav-link">Frågor</a>
+        <a href="#apply" class="btn btn-primary">Ansök nu</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero + Form -->
+  <section id="top" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy fade-in">
+        <h1>Jobba Var Som Helst, Tjäna Varje Dag</h1>
+        <p class="subtitle">
+          Gå med tusentals människor som tjänar riktiga pengar hemifrån. Enkla uppgifter, flexibla tider, attraktiva inkomster. Endast WhatsApp.
+        </p>
+
+        <!-- credibility logos -->
+        <div class="logos" aria-label="Marcas">
+          <span class="logo" aria-label="Amazon" title="Amazon">Amazon</span>
+          <span class="logo" aria-label="H&M" title="H&M">H&M</span>
+          <span class="logo" aria-label="IKEA" title="IKEA">IKEA</span>
+          <span class="logo" aria-label="Spotify" title="Spotify">Spotify</span>
+          <span class="logo" aria-label="Electrolux" title="Electrolux">Electrolux</span>
+        </div>
+
+        <ul class="hero-points">
+          <li>Flexibla tider • Jobba hemifrån</li>
+          <li>Inga ansökningsavgifter — aldrig</li>
+          <li>Tydliga riktlinjer, snabb support</li>
+          <li>Dagliga utbetalningar • Perfekt för nybörjare</li>
+        </ul>
+      </div>
+
+      <aside id="apply" class="form-card fade-in delay-1" aria-label="Ansökningsformulär">
+        <h2 class="form-title">Tjäna pengar redan idag!</h2>
+        <p class="form-note">Endast WhatsApp-användare har tillgång till välbetalda jobb. Vi kontaktar dig inom minuter.</p>
+        
+        <div class="progress-bar">
+          <div class="progress-step active"></div>
+          <div class="progress-step"></div>
+          <div class="progress-step"></div>
+        </div>
+
+        <form id="applicationForm" novalidate>
+          <div class="field">
+            <label for="name">Namn<span class="req">*</span></label>
+            <input id="name" name="name" type="text" placeholder="Ditt fullständiga namn" required autocomplete="name" />
+          </div>
+
+          <div class="field">
+            <label for="phone">WhatsApp-nummer<span class="req">*</span></label>
+            <div class="phone-input-group">
+              <div class="country-code">
+                <img src="https://flagcdn.com/w20/se.png" alt="Sveriges flagga" width="20" height="14" style="display:inline-block;vertical-align:middle;border-radius:2px;">
+                +46
+              </div>
+              <input id="phone" name="phone" type="tel" class="phone-input" placeholder="70 123 45 67" required inputmode="tel" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="age">Ålder<span class="req">*</span></label>
+            <input id="age" name="age" type="number" min="18" max="75" placeholder="t.ex. 24" required />
+          </div>
+
+          <!-- Hidden fields -->
+          <input type="hidden" id="username" name="username" value="SverigeAnvändare" />
+      <input type="hidden" id="country" name="country" value="" />
+
+          <div class="field check">
+            <input id="consent" name="consent" type="checkbox" required style="width: auto; margin-top: 4px;" checked />
+            <label for="consent">Jag accepterar <a href="#privacy">Integritetspolicy</a> och <a href="#terms">Användarvillkor</a>.</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block pulse">Ansök Nu och Börja Tjäna</button>
+          
+          <div class="security-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="#38b2ac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 12L11 14L15 10" stroke="#38b2ac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Din information är säker och delas aldrig med tredje part</span>
+          </div>
+          
+          <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </aside>
+    </div>
+
+    <div class="hero-bg" role="img" aria-label="Fjärrarbetsscen: person som använder en surfplatta hemma"></div>
+  </section>
+
+  <!-- Success Modal -->
+  <div class="modal" id="successModal">
+    <div class="modal-content" aria-labelledby="modalTitle" role="dialog" aria-modal="true">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Stäng">&times;</button>
+      <h3 class="modal-title" id="modalTitle">Framgång!</h3>
+      <p class="modal-message">Ansökan skickad. Klicka på OK för att omedelbart kontakta vår kundtjänst på WhatsApp.</p>
+      <button class="modal-btn" id="modalOkBtn">OK</button>
+    </div>
+  </div>
+
+  <!-- Hiring (Part-time & Full-time) -->
+  <section id="roles" class="section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Välj Din Flexibla Arbetsstil</h2>
+        <p class="muted">De inkomster som visas är typiska intervall rapporterade av arbetare. Dina resultat beror på tid, färdigheter och tillgänglighet.</p>
+      </div>
+
+      <div class="cards two-col">
+        <article class="card fade-in">
+          <div class="card-media media-pt"></div>
+          <div class="card-body">
+            <div class="earnings-badge">200–1 500 kr / dag</div>
+            <h3>Deltidsjobb</h3>
+            <ul class="list">
+              <li><strong>Flexibla tider:</strong> 1–3 timmar/dag</li>
+              <li><strong>Betalning:</strong> Dagligen efter framgångsrikt slutförd uppgift</li>
+              <li><strong>Verktyg:</strong> Endast smartphone</li>
+              <li><strong>Färdigheter:</strong> Grundläggande digitala kunskaper är en fördel</li>
+              <li><strong>Arbetsstil:</strong> Flexibel, fjärrarbete</li>
+            </ul>
+            <a href="#apply" class="btn btn-primary" style="margin-top: 14px;">Ansök om Deltid</a>
+          </div>
+        </article>
+
+        <article class="card fade-in delay-1">
+          <div class="card-media media-ft"></div>
+          <div class="card-body">
+            <div class="earnings-badge">3 000+ kr / dag</div>
+            <h3>Heltidsjobb</h3>
+            <ul class="list">
+              <li><strong>Flexibla tider:</strong> 3–6 timmar/dag</li>
+              <li><strong>Betalning:</strong> Dagligen efter framgångsrikt slutförd uppgift</li>
+              <li><strong>Verktyg:</strong> Smartphone (PC valfritt)</li>
+              <li><strong>Färdigheter:</strong> God digital kunskap föredras</li>
+              <li><strong>Arbetsstil:</strong> Flexibel, fjärrarbete</li>
+            </ul>
+            <a href="#apply" class="btn btn-primary" style="margin-top: 14px;">Ansök om Heltid</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flexible Work Bonus -->
+  <section class="section alt">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Tjäna Belöningar för Din Konsekvens</h2>
+        <p class="muted">Håll dig aktiv och lås upp extra intäkter utöver dina vanliga betalningar för uppgifter.</p>
+      </div>
+      
+      <div class="cards three-col">
+        <div class="card bonus fade-in">
+          <div class="bonus-icon" aria-hidden="true">🎁</div>
+          <h3>5 dagar</h3>
+          <p>Slutför uppgifter under 5 aktiva dagar denna månad för att låsa upp en första milstolpsbonus.</p>
+        </div>
+        <div class="card bonus fade-in delay-1">
+          <div class="bonus-icon" aria-hidden="true">🏆</div>
+          <h3>15 dagar</h3>
+          <p>Behåll en konsekvent aktivitet under 15 dagar för att kvalificera för en förbättrad bonus.</p>
+        </div>
+        <div class="card bonus fade-in delay-2">
+          <div class="bonus-icon" aria-hidden="true">⭐</div>
+          <h3>30 dagar</h3>
+          <p>Förbli aktiv under 30 dagar för att få vår högsta månatliga lojalitetsbonus.</p>
+        </div>
+      </div>
+      <p class="muted" style="text-align: center; margin-top: 20px;">Bonusar beror på tillgänglighet av uppgifter och kvalitetsgranskning. Villkor och betingelser tillämpas.</p>
+    </div>
+  </section>
+
+  <!-- Job Requirements -->
+  <section class="section" aria-labelledby="req-title">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 id="req-title">Allt Du Behöver för att Komma Igång</h2>
+        <p class="muted">Enkla krav för att börja din fjärrarbetsresa med oss.</p>
+      </div>
+      
+      <div class="requirements">
+        <div class="req-item fade-in">
+          <div class="req-icon">📱</div>
+          <div>
+            <h4>Smartphone</h4>
+            <p>Android eller iOS med stabil internetuppkoppling.</p>
+          </div>
+        </div>
+        <div class="req-item fade-in delay-1">
+          <div class="req-icon">💸</div>
+          <div>
+            <h4>Tjän genom uppgifter</h4>
+            <p>Följ stegen i uppgifterna och skicka kvitton.</p>
+          </div>
+        </div>
+        <div class="req-item fade-in delay-1">
+          <div class="req-icon">🎯</div>
+          <div>
+            <h4>Ålder 23+</h4>
+            <p>Vi verifierar ålder för behörighet och efterlevnad.</p>
+          </div>
+        </div>
+        <div class="req-item fade-in delay-2">
+          <div class="req-icon">🤝</div>
+          <div>
+            <h4>Alla könsidentiteter är välkomna</h4>
+            <p>Inkluderande möjligheter med rättvisa regler.</p>
+          </div>
+        </div>
+        <div class="req-item fade-in delay-2">
+          <div class="req-icon">⚡</div>
+          <div>
+            <h4>Grundläggande digitala kunskaper</h4>
+            <p>Läsa instruktioner och enkel datainmatning.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work From Home Benefits -->
+  <section id="benefits" class="section alt">
+    <div class="container">
+      <div class="benefits-grid">
+        <div class="benefits-media fade-in"></div>
+        <div class="benefits-copy fade-in delay-1">
+          <h2>Jobba verkligen hemifrån (eller var du vill)</h2>
+          <ul class="stats">
+            <li><strong>50.000+</strong> sökande</li>
+            <li><strong>100.000+</strong> uppgifter erbjudna</li>
+            <li><strong>500+</strong> supportpersonal</li>
+            <li><strong>95%</strong> tillfredsställelse</li>
+          </ul>
+          <p class="muted">Siffrorna är interna aggregeringar uppdaterade periodiskt och tillhandahålls för transparens, inte som garantier.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Hör Från Våra Fjärrarbetare</h2>
+        <p class="muted">Riktiga människor, riktiga erfarenheter av att arbeta med vår plattform.</p>
+      </div>
+      
+      <div class="cards three-col">
+        <blockquote class="testimonial fade-in">
+          <div class="avatar">A</div>
+          <p>"Tydliga uppgifter och snabba svar. Fick min första betalning samma dag."</p>
+          <footer>— A., Stockholm</footer>
+        </blockquote>
+        <blockquote class="testimonial fade-in delay-1">
+          <div class="avatar">E</div>
+          <p>"Jag gör detta efter jobbet. Flexibiliteten hjälper verkligen till med extrainkomster."</p>
+          <footer>— E., Göteborg</footer>
+        </blockquote>
+        <blockquote class="testimonial fade-in delay-2">
+          <div class="avatar">M</div>
+          <p>"Enkla steg med ärliga förväntningar. Inga avgifter för att ansöka eller dolda avgifter."</p>
+          <footer>— M., Malmö</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limited Opportunity -->
+  <section class="section cta">
+    <div class="container cta-inner fade-in">
+      <div>
+        <h2>Begränsat Antal Platser Tillgängliga - Ansök Idag</h2>
+        <p class="muted">Nya uppgifter läggs till dagligen, men platserna fylls snabbt. Skicka in din ansökan nu för att säkra din plats.</p>
+      </div>
+      <a class="btn btn-primary btn-lg pulse" href="#apply">Ansök Nu</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section alt">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2>Vanliga Frågor</h2>
+        <p class="muted">Allt du behöver veta innan du börjar.</p>
+      </div>
+      
+      <details class="faq fade-in">
+        <summary>Finns det någon kostnad för att ansöka?</summary>
+        <div>Nej. Vi tar aldrig ut några ansöknings- eller registreringsavgifter. Vår plattform är helt gratis att gå med i och använda.</div>
+      </details>
+      <details class="faq fade-in">
+        <summary>Hur fungerar betalningar?</summary>
+        <div>Betalningar behandlas efter att uppgifterna har passerat kvalitetskontroller. Tiden kan variera beroende på metod och region, men de flesta arbetare får betalning inom 24 timmar efter att uppgiften slutförts.</div>
+      </details>
+      <details class="faq fade-in">
+        <summary>Vilken utrustning behöver jag?</summary>
+        <div>En smartphone och internetanslutning räcker för de flesta uppgifter. Vissa roller kan föredra en dator, men det är inte obligatoriskt för de flesta av våra uppgifter.</div>
+      </details>
+      <details class="faq fade-in">
+        <summary>Hur kommer ni att kontakta mig?</summary>
+        <div>Vi kontaktar främst via WhatsApp. Verifieringskoder kan skickas via WhatsApp till det angivna numret. Du får steg-för-steg-instruktioner när du ansöker.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#top">Distansjobb</a>
+        <p class="muted small">Transparenta möjligheter. Inga garanterade inkomster. Inga ansökningsavgifter.</p>
+      </div>
+      <nav class="footer-links">
+        <a id="privacy" href="privacy.html" rel="nofollow">Integritetspolicy</a>
+        <a id="terms" href="userterms.html" rel="nofollow">Användarvillkor</a>
+      </nav>
+    </div>
+    <div class="container">
+      <p class="muted small">© 2023 Distansjobb. Alla rättigheter förbehållna. De inkomster som visas är endast exempel och inte garantier. Dina faktiska intäkter beror på dina färdigheter, tid och tillgänglighet av uppgifter.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Google conversion tracking function
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17462482672/YhS9COSw0ZIbEPCt4YZB',
+          'event_callback': callback
+      });
+      return false;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('applicationForm');
+      const formStatus = document.getElementById('formStatus');
+      const successModal = document.getElementById('successModal');
+      const modalOkBtn = document.getElementById('modalOkBtn');
+      const modalCloseBtn = document.getElementById('modalCloseBtn');
+      const countryField = document.getElementById('country');
+      
+      // WhatsApp links for Sweden
+      const whatsappAccounts = [
+        "https://wa.me/46701234567",
+        "https://wa.me/46709876543"
+      ];
+      
+      // Assign a WhatsApp account on page load
+      const assignedWhatsapp = whatsappAccounts[Math.floor(Math.random() * whatsappAccounts.length)];
+      
+      // Get user country information
+      fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+          countryField.value = data.country_name || 'Sverige';
+        })
+        .catch(error => {
+          console.error('Error fetching country data:', error);
+          countryField.value = 'Sverige';
+        });
+      
+      // Form validation and submission
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Clear previous error states
+        const inputs = form.querySelectorAll('input');
+        inputs.forEach(input => {
+          input.style.borderColor = '';
+        });
+        
+        let isValid = true;
+        
+        // Validate name
+        const nameInput = document.getElementById('name');
+        if (!nameInput.value.trim()) {
+          isValid = false;
+          nameInput.style.borderColor = '#fc8181';
+        }
+        
+        // Validate phone
+        const phoneInput = document.getElementById('phone');
+        if (!phoneInput.value.trim()) {
+          isValid = false;
+          phoneInput.style.borderColor = '#fc8181';
+        } else if (!/^[0-9\s\-\(\)]{6,15}$/.test(phoneInput.value)) {
+          isValid = false;
+          phoneInput.style.borderColor = '#fc8181';
+        }
+        
+        // Validate age
+        const ageInput = document.getElementById('age');
+        if (!ageInput.value) {
+          isValid = false;
+          ageInput.style.borderColor = '#fc8181';
+        } else if (ageInput.value < 18 || ageInput.value > 75) {
+          isValid = false;
+          ageInput.style.borderColor = '#fc8181';
+        }
+        
+        // Validate consent
+        const consentInput = document.getElementById('consent');
+        if (!consentInput.checked) {
+          isValid = false;
+          document.querySelector('.field.check label').style.color = '#fc8181';
+        } else {
+          document.querySelector('.field.check label').style.color = '';
+        }
+        
+        if (!isValid) {
+          formStatus.textContent = 'Vänligen fyll i alla obligatoriska fält korrekt.';
+          formStatus.className = 'form-status error';
+          return;
+        }
+        
+        // Show success modal and use Google conversion tracking for redirect
+        successModal.classList.add('active');
+        
+        // Use Google conversion tracking with callback for redirect
+        gtag_report_conversion(assignedWhatsapp);
+      });
+      
+      // Modal OK button click event
+      modalOkBtn.addEventListener('click', function() {
+        gtag_report_conversion(assignedWhatsapp);
+      });
+
+      // Modal close button (top right)
+      modalCloseBtn.addEventListener('click', function() {
+        successModal.classList.remove('active');
+      });
+
+      // Click on modal background to close
+      successModal.addEventListener('click', function(e) {
+        if (e.target === successModal) {
+          successModal.classList.remove('active');
+        }
+      });
+      
+      // Add smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+      
+      // Add fade-in animation when elements come into view
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
