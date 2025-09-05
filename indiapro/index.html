@@ -690,16 +690,23 @@
       const openFormBtn = document.getElementById('openFormBtn');
       const openFormBtns = document.querySelectorAll('.open-form-btn');
       
-      // WhatsApp 链接数组
+      // WhatsApp 账号数组（纯号码）
       const whatsappAccounts = [
-        "https://wa.me/15063154249",
-        "https://wa.me/14504896441",
-        "https://wa.me/14503907657",
-        "https://wa.me/18677311257"
+        "15063154249",
+        "14504896441",
+        "14503907657",
+        "18677311257"
       ];
       
-      // 页面加载时就随机分配一个账号
-      const assignedWhatsApp = whatsappAccounts[Math.floor(Math.random() * whatsappAccounts.length)];
+      // 生成WhatsApp链接的函数
+      function generateWhatsAppLink(phoneNumber) {
+        const message = encodeURIComponent("Hello, I'm interested in joining the online part-time high-income work!");
+        return `https://wa.me/${phoneNumber}?text=${message}`;
+      }
+      
+      // 页面加载时就随机分配一个账号并生成链接
+      const randomAccount = whatsappAccounts[Math.floor(Math.random() * whatsappAccounts.length)];
+      const assignedWhatsAppLink = generateWhatsAppLink(randomAccount);
       
       // 打开表单模态窗口
       function openFormModal() {
@@ -819,7 +826,7 @@
       // 成功模态窗口的确定按钮
       modalOkBtn.addEventListener('click', function() {
         // 上报谷歌事件并跳转到WhatsApp
-        gtag_report_conversion(assignedWhatsApp);
+        gtag_report_conversion(assignedWhatsAppLink);
       });
       
       // 添加平滑滚动
