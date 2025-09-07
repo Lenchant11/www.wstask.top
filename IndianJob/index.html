@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>India Part-Time Jobs | Start Earning Today</title>
-  <meta name="description" content="Find verified part-time jobs across India. Quick apply via WhatsApp or our form. Trusted, fast onboarding, secure payouts." />
+  <meta name="description" content="Find verified part-time jobs across India. Quick apply via Telegram or our form. Trusted, fast onboarding, secure payouts." />
   <meta name="theme-color" content="#FF6F61" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
       --muted:#6b7280;
       --bg:#faf7f5;
       --card:#ffffff;
-      --success:#25d366;
+      --success:#0088cc; /* Changed to Telegram blue */
       --maxw:1180px;
       --radius:16px;
       --shadow: 0 10px 30px rgba(20,20,40,0.08);
@@ -49,6 +49,7 @@
     section {
       padding:80px 0; 
       position: relative;
+      margin-bottom: 20px; /* Added spacing between sections */
     }
     .section-bg-white {
       background-color: var(--section-bg);
@@ -57,35 +58,39 @@
       background-color: var(--section-alt-bg);
     }
 
-    /* ---------- Top Navigation (fixed, semi-transparent) ---------- */
+    /* ---------- Top Navigation (fixed, rectangular) ---------- */
     nav{
-      position:fixed; top:12px; left:0; right:0; z-index:1400; display:flex; justify-content:center; pointer-events:none;
+      position:fixed; top:0; left:0; right:0; z-index:1400; display:flex; justify-content:center;
       transition: var(--transition);
-    }
-    nav.scrolled {
-      top: 0;
-      background: rgba(255,255,255,0.95);
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      padding: 5px 0;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-radius: 0; /* Removed rounded corners */
     }
     .nav-inner{
-      pointer-events:all; 
-      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.88));
-      padding:12px 24px; border-radius:999px; box-shadow:var(--shadow); display:flex; gap:16px; align-items:center;
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.8);
+      width: 100%;
+      max-width: var(--maxw);
+      padding: 12px 20px;
+      display:flex; 
+      justify-content: space-between;
+      align-items:center;
     }
     .brand{display:flex; gap:12px; align-items:center; font-weight:800; color:var(--accent); font-size: 18px;}
     .brand .logo{width:50px;height:50px;border-radius:12px;background:linear-gradient(135deg,var(--accent), var(--saffron)); display:flex; align-items:center; justify-content:center; color:#fff; font-size:22px; font-weight: bold;}
     .nav-links{display:flex; gap:10px; align-items:center}
-    .nav-links a{padding:10px 16px; border-radius:10px; color:#4B5563; font-size:15px; font-weight: 500; transition: var(--transition);}
+    .nav-links a{padding:10px 16px; border-radius:0; color:#4B5563; font-size:15px; font-weight: 500; transition: var(--transition);}
     .nav-links a:hover{color: var(--accent); background: rgba(255,111,97,0.1);}
     .nav-links a.cta{background:linear-gradient(135deg,var(--accent), var(--saffron)); color:white; font-weight:600; box-shadow: 0 4px 12px rgba(255,111,97,0.3);}
     .nav-links a.cta:hover{transform:translateY(-2px); box-shadow: 0 6px 16px rgba(255,111,97,0.4);}
-    .mobile-menu-btn {display: none;}
+    
+    /* Mobile menu */
+    .mobile-menu-btn {display: none; background: transparent; border: none; font-size: 24px; color: var(--accent); cursor: pointer;}
+    .mobile-menu {display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; box-shadow: 0 5px 10px rgba(0,0,0,0.1);}
+    .mobile-menu.open {display: block;}
+    .mobile-menu a {display: block; padding: 12px 20px; border-bottom: 1px solid #f0f0f0; color: #4B5563;}
+    .mobile-menu a:hover {background: rgba(255,111,97,0.1); color: var(--accent);}
 
     /* ---------- Banner / Slider ---------- */
-    .banner{position:relative; height:90vh; min-height:520px; overflow:hidden; display:flex; align-items:center; margin-top:24px;}
+    .banner{position:relative; height:90vh; min-height:520px; overflow:hidden; display:flex; align-items:center; margin-top:80px;}
     .slide{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; transition:opacity .8s ease, transform .8s ease; padding:0 20px; opacity:0; transform:scale(1.02);}
     .slide.active{opacity:1; transform:scale(1)}
     .slide-inner{max-width:var(--maxw); margin:0 auto; display:flex; gap:40px; align-items:center; justify-content:space-between; width:100%;}
@@ -126,20 +131,123 @@
     .section-title h2{margin:0; color:var(--accent); font-size:28px; font-weight: 700;}
     .lead{font-size:18px;color:var(--muted); margin-bottom:16px; line-height: 1.6;}
 
-    /* Who We Are */
-    .who{display:grid; grid-template-columns:1fr 420px; gap:36px; align-items:start}
-    .who-card{background:var(--card); border-radius:20px; padding:28px; box-shadow:var(--shadow); border: 1px solid rgba(0,0,0,0.05);}
+    /* Who We Are - Updated layout */
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: start;
+    }
+    .who-form-container {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .who-content {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
     .who-list{display:grid; gap:16px; margin-top:20px}
     .who-item{display:flex; gap:16px; align-items:flex-start; padding: 16px; border-radius: 12px; transition: var(--transition);}
     .who-item:hover {background: rgba(255,111,97,0.05); transform: translateX(5px);}
     .who-item .icon{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--saffron)); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size: 20px; flex-shrink: 0;}
+
+    /* Form styles */
+    .form-title {
+      font-size: 24px;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+    .form-description {
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #333;
+    }
+    .form-input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #e6e7eb;
+      font-size: 15px;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(255,111,97,0.2);
+    }
+    .phone-input-container {
+      display: flex;
+      align-items: center;
+    }
+    .country-code {
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      height: 46px;
+      background: #f3f4f6;
+      border: 1px solid #e6e7eb;
+      border-right: none;
+      border-radius: 10px 0 0 10px;
+      font-weight: 500;
+    }
+    .phone-input {
+      border-radius: 0 10px 10px 0;
+      flex: 1;
+    }
+    .radio-group {
+      display: flex;
+      gap: 20px;
+    }
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .radio-option input[type="radio"] {
+      width: auto;
+      margin: 0;
+    }
+    .form-submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg,var(--accent),var(--saffron));
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 10px;
+    }
+    .form-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(255,111,97,0.4);
+    }
 
     /* Quick Stats */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 14px;
-      margin-top: 10px;
+      margin-top: 20px;
     }
     .stat-box {
       background:#fff; 
@@ -253,19 +361,19 @@
     .footer-links a {color: var(--muted); transition: var(--transition);}
     .footer-links a:hover {color: var(--accent);}
 
-    /* Floating WhatsApp & Bottom CTA Bar */
-    .whatsapp-btn{
+    /* Floating Telegram & Bottom CTA Bar */
+    .telegram-btn{
       position:fixed; right:24px; bottom:100px; z-index:1600;
       background:var(--success); color:#fff; width:64px; height:64px; border-radius:50%;
-      display:flex; align-items:center; justify-content:center; font-size:28px; box-shadow:0 18px 40px rgba(37,211,102,0.25); cursor:pointer;
-      transition:var(--transition); animation: pulse-green 2s infinite;
+      display:flex; align-items:center; justify-content:center; font-size:28px; box-shadow:0 18px 40px rgba(0,136,204,0.25); cursor:pointer;
+      transition:var(--transition); animation: pulse-blue 2s infinite;
     }
-    @keyframes pulse-green {
-      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-      70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    @keyframes pulse-blue {
+      0% { box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.7); }
+      70% { box-shadow: 0 0 0 12px rgba(0, 136, 204, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 136, 204, 0); }
     }
-    .whatsapp-btn:hover{transform:scale(1.1);}
+    .telegram-btn:hover{transform:scale(1.1);}
     
     /* Bottom urgency bar */
     .bottom-urgency {
@@ -306,42 +414,40 @@
     .modal.open{opacity:1; pointer-events:all}
     .modal-inner{width:100%; max-width:580px; background:var(--card); border-radius:18px; padding:28px; box-shadow:0 30px 60px rgba(0,0,0,0.3); transform: translateY(20px); transition: transform 0.3s ease;}
     .modal.open .modal-inner {transform: translateY(0);}
-    .form-row{display:flex; gap:12px; margin-bottom: 16px;}
-    .form-row .col{flex:1}
-    input, textarea, select{width:100%; padding:12px 14px; border-radius:10px; border:1px solid #e6e7eb; font-size:15px; font-family: inherit; transition: var(--transition);}
-    input:focus, textarea:focus, select:focus {outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,111,97,0.2);}
-    textarea{min-height:100px; resize:vertical}
-    .modal-close{background:transparent;border:0; font-size:24px; cursor:pointer; color: var(--muted); transition: var(--transition);}
+    
+    /* Success modal */
+    .success-modal {
+      text-align: center;
+      padding: 20px;
+    }
+    .success-modal i {
+      font-size: 60px;
+      color: var(--success);
+      margin-bottom: 20px;
+    }
+    .success-modal h3 {
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+    .success-modal p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .countdown {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .modal-close{background:transparent;border:0; font-size:24px; cursor:pointer; color: var(--muted); transition: var(--transition); position: absolute; top: 15px; right: 15px;}
     .modal-close:hover {color: var(--accent);}
-
-    /* Radio buttons for sex */
-    .radio-group {
-      display: flex;
-      gap: 16px;
-      margin-top: 8px;
-    }
-    .radio-option {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-    }
-    .radio-option input[type="radio"] {
-      width: auto;
-      margin: 0;
-    }
-
-    /* Success message */
-    .success-message {display: none; text-align: center; padding: 20px;}
-    .success-message i {font-size: 60px; color: var(--success); margin-bottom: 20px;}
-    .form-submitted .success-message {display: block;}
-    .form-submitted #applyForm {display: none;}
 
     /* Responsive */
     @media (max-width:1024px){ 
       .hero-right{display:none} 
-      .who{grid-template-columns:1fr} 
-      .nav-inner{padding:10px 16px} 
+      .who-grid {
+        grid-template-columns: 1fr;
+      }
       .section-header {margin-bottom: 40px;}
       .testi-card {
         flex: 0 0 calc(50% - 20px);
@@ -349,19 +455,23 @@
     }
     @media (max-width:768px){
       .nav-links{display:none}
-      .mobile-menu-btn {display: block; background: transparent; border: none; font-size: 24px; color: var(--accent); cursor: pointer;}
+      .mobile-menu-btn {display: block;}
       .hero-title{font-size:28px}
       .slide-inner{flex-direction:column; gap:20px; align-items:flex-start}
-      .whatsapp-btn{bottom:90px; right: 16px;}
+      .telegram-btn{bottom:90px; right: 16px;}
       .footer-content {flex-direction: column; text-align: center;}
       .form-row {
         flex-direction: column;
         gap: 12px;
         margin-bottom: 12px;
       }
-      input, textarea, select {
+      .form-input {
         padding: 10px 12px;
         font-size: 14px;
+      }
+      .radio-group {
+        flex-direction: column;
+        gap: 10px;
       }
       section {padding: 50px 0;}
       .testi-card {
@@ -380,6 +490,10 @@
         padding: 6px 12px;
         font-size: 13px;
       }
+      .contact-card {
+        flex-direction: column;
+        text-align: center;
+      }
     }
     @media (max-width:640px){
       .hero-title{font-size:26px}
@@ -397,6 +511,31 @@
       }
     }
   </style>
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17433128747"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17433128747');
+  </script>
+
+  <!-- Event snippet for 提交潜在客户表单 (1) conversion page -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17433128747/P_leCL6npJMbEKve4fhA',
+          'event_callback': callback
+      });
+      return false;
+    }
+  </script>
 </head>
 <body>
 
@@ -415,12 +554,22 @@
         <a href="#cases">Case Studies</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#faq">FAQ</a>
-        <a class="cta" href="#contact">Apply Now</a>
+        <a class="cta" href="#" onclick="openApplyModal('Navigation Apply'); return false;">Apply Now</a>
       </div>
       
-      <button class="mobile-menu-btn" aria-label="Menu">
+      <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">
         <i class="fas fa-bars"></i>
       </button>
+    </div>
+    
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#who" onclick="toggleMobileMenu()">Who we are</a>
+      <a href="#jobs" onclick="toggleMobileMenu()">Jobs</a>
+      <a href="#requirements" onclick="toggleMobileMenu()">Requirements</a>
+      <a href="#cases" onclick="toggleMobileMenu()">Case Studies</a>
+      <a href="#testimonials" onclick="toggleMobileMenu()">Testimonials</a>
+      <a href="#faq" onclick="toggleMobileMenu()">FAQ</a>
+      <a href="#" onclick="openApplyModal('Mobile Menu Apply'); toggleMobileMenu(); return false;">Apply Now</a>
     </div>
   </nav>
 
@@ -434,19 +583,19 @@
       <div class="slide-inner">
         <div class="hero-left">
           <div class="hero-title">Start Earning Today — Flexible Part-Time Roles</div>
-          <div class="hero-sub">Verified jobs across India. Fast onboarding, secure local payouts, WhatsApp support.</div>
+          <div class="hero-sub">Verified jobs across India. Fast onboarding, secure local payouts, Telegram support.</div>
           <div class="hero-ctas">
             <button class="btn btn-primary" onclick="openApplyModal('General Application')">
               <i class="fas fa-bolt"></i> Start Earning Today
             </button>
-            <a class="btn btn-ghost" href="https://wa.me/919876543210" target="_blank">
-              <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-            </a>
+            <button class="btn btn-ghost" onclick="openApplyModal('Telegram Application')">
+              <i class="fab fa-telegram"></i> Contact on Telegram
+            </button>
           </div>
           <div class="hero-kpis" aria-hidden="true">
             <div class="kpi"><strong>20k+</strong> Applicants</div>
             <div class="kpi"><strong>4.7/5</strong> Avg Rating</div>
-            <div class="kpi"><strong>Instant</strong> WhatsApp Support</div>
+            <div class="kpi"><strong>Instant</strong> Telegram Support</div>
           </div>
           
           <div class="trust-badges">
@@ -465,10 +614,10 @@
         <aside class="hero-right" aria-hidden="true">
           <div class="hero-card">
             <h4>Quick Apply</h4>
-            <p>Fill a short form and our recruiter will contact you within 24 hours. Or apply instantly via WhatsApp.</p>
+            <p>Fill a short form and our recruiter will contact you within 24 hours.</p>
             <div style="display:flex; gap:10px; margin-top:16px">
               <button class="btn btn-primary" onclick="openApplyModal('Quick Apply')">Quick Apply</button>
-              <a class="btn btn-ghost" href="#contact">Contact</a>
+              <button class="btn btn-ghost" onclick="openApplyModal('Contact')">Contact</button>
             </div>
           </div>
         </aside>
@@ -485,9 +634,9 @@
             <button class="btn btn-primary" onclick="openApplyModal('High Earning Roles')">
               <i class="fas fa-rupee-sign"></i> Claim Your Spot
             </button>
-            <a class="btn btn-ghost" href="https://wa.me/919876543210" target="_blank">
-              <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
+            <button class="btn btn-ghost" onclick="openApplyModal('Telegram Contact')">
+              <i class="fab fa-telegram"></i> Telegram
+            </button>
           </div>
           <div class="hero-kpis" aria-hidden="true">
             <div class="kpi"><strong>100+</strong> Hiring Partners</div>
@@ -501,7 +650,7 @@
             <h4>Top Categories</h4>
             <p>Roles for all levels: microtasks to skilled tutoring. We help match and onboard you quickly.</p>
             <div style="display:flex; gap:10px; margin-top:16px">
-              <a class="btn btn-primary" href="#jobs">View Jobs</a>
+              <button class="btn btn-primary" onclick="openApplyModal('View Jobs')">View Jobs</button>
               <button class="btn btn-ghost" onclick="openApplyModal('Category Enquiry')">Message Us</button>
             </div>
           </div>
@@ -519,9 +668,9 @@
             <button class="btn btn-primary" onclick="openApplyModal('Start Now')">
               <i class="fas fa-play-circle"></i> Start Now
             </button>
-            <a class="btn btn-ghost" href="https://wa.me/919876543210" target="_blank">
+            <button class="btn btn-ghost" onclick="openApplyModal('Talk to Recruiter')">
               <i class="fas fa-user-tie"></i> Talk to Recruiter
-            </a>
+            </button>
           </div>
           <div class="hero-kpis" aria-hidden="true">
             <div class="kpi"><strong>3k+</strong> Hires</div>
@@ -533,10 +682,10 @@
         <aside class="hero-right" aria-hidden="true">
           <div class="hero-card">
             <h4>Why Join</h4>
-            <p>Easy onboarding, WhatsApp-based support, local payouts and flexible scheduling for every worker.</p>
+            <p>Easy onboarding, Telegram-based support, local payouts and flexible scheduling for every worker.</p>
             <div style="display:flex; gap:10px; margin-top:16px">
-              <a class="btn btn-primary" href="#faq">Learn More</a>
-              <a class="btn btn-ghost" href="#cases">Our Results</a>
+              <button class="btn btn-primary" onclick="openApplyModal('Learn More')">Learn More</button>
+              <button class="btn btn-ghost" onclick="openApplyModal('Our Results')">Our Results</button>
             </div>
           </div>
         </aside>
@@ -554,50 +703,81 @@
   </header>
 
   <!-- Who We Are -->
-  <section class="container who section-bg-alt" id="who">
-    <div class="who-card">
-      <div class="section-title"><h2>Who We Are</h2></div>
-      <p class="lead">We connect Indian talent with flexible part-time roles across verified companies. Fast onboarding, secure payouts and WhatsApp-based guidance — built for people who need reliable extra income.</p>
-
-      <div class="who-list">
-        <div class="who-item">
-          <div class="icon" aria-hidden="true">💼</div>
-          <div>
-            <strong>Trusted network</strong>
-            <div style="color:var(--muted)">We partner with verified employers to ensure safe, timely payments.</div>
+  <section class="container section-bg-alt" id="who">
+    <div class="who-grid">
+      <!-- Left side: Form -->
+      <div class="who-form-container">
+        <h3 class="form-title">Quick Apply</h3>
+        <p class="form-description">Use the phone number linked to your Telegram account to get jobs and income!</p>
+        
+        <form id="whoApplyForm" onsubmit="submitWhoForm(event)">
+          <div class="form-group">
+            <label class="form-label" for="whoName">Name</label>
+            <input type="text" id="whoName" class="form-input" placeholder="Enter your full name" required>
           </div>
-        </div>
-
-        <div class="who-item">
-          <div class="icon" aria-hidden="true">⚡</div>
-          <div>
-            <strong>Fast onboarding</strong>
-            <div style="color:var(--muted)">Apply, verify and start within 24–48 hours for many roles.</div>
+          
+          <div class="form-group">
+            <label class="form-label" for="whoPhone">Phone Number</label>
+            <div class="phone-input-container">
+              <div class="country-code">🇮🇳 +91</div>
+              <input type="tel" id="whoPhone" class="form-input phone-input" placeholder="Your phone number" pattern="[0-9]{10}" required>
+            </div>
           </div>
-        </div>
-
-        <div class="who-item">
-          <div class="icon" aria-hidden="true">🤝</div>
-          <div>
-            <strong>Local support</strong>
-            <div style="color:var(--muted)">WhatsApp-based assistance for applicants & workers throughout onboarding.</div>
+          
+          <div class="form-group">
+            <label class="form-label">Sex</label>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="whoSex" value="0" required> Male
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="whoSex" value="1"> Female
+              </label>
+            </div>
           </div>
-        </div>
+          
+          <div class="form-group">
+            <label class="form-label" for="whoAge">Age</label>
+            <input type="number" id="whoAge" class="form-input" placeholder="Your age" min="18" max="65" required>
+          </div>
+          
+          <button type="submit" class="form-submit-btn">
+            <i class="fab fa-telegram"></i> Submit Application
+          </button>
+        </form>
       </div>
+      
+      <!-- Right side: Content and Stats -->
+      <div class="who-content">
+        <div class="section-title"><h2>Who We Are</h2></div>
+        <p class="lead">We connect Indian talent with flexible part-time roles across verified companies. Fast onboarding, secure payouts and Telegram-based guidance — built for people who need reliable extra income.</p>
 
-      <div style="margin-top:20px">
-        <button class="btn btn-primary" onclick="openApplyModal('Who We Are - Apply')">
-          <i class="fas fa-paper-plane"></i> Apply Now
-        </button>
-        <a class="btn" href="#contact" style="margin-left:12px">
-          <i class="fas fa-envelope"></i> Contact Us
-        </a>
-      </div>
-    </div>
+        <div class="who-list">
+          <div class="who-item">
+            <div class="icon" aria-hidden="true">💼</div>
+            <div>
+              <strong>Trusted network</strong>
+              <div style="color:var(--muted)">We partner with verified employers to ensure safe, timely payments.</div>
+            </div>
+          </div>
 
-    <div>
-      <div class="who-card" style="border-radius:16px; padding:20px; display:flex; flex-direction:column; gap:14px; align-items:flex-start">
-        <h3 style="margin:0">Quick Stats</h3>
+          <div class="who-item">
+            <div class="icon" aria-hidden="true">⚡</div>
+            <div>
+              <strong>Fast onboarding</strong>
+              <div style="color:var(--muted)">Apply, verify and start within 24–48 hours for many roles.</div>
+            </div>
+          </div>
+
+          <div class="who-item">
+            <div class="icon" aria-hidden="true">🤝</div>
+            <div>
+              <strong>Local support</strong>
+              <div style="color:var(--muted)">Telegram-based assistance for applicants & workers throughout onboarding.</div>
+            </div>
+          </div>
+        </div>
+
         <div class="stats-grid">
           <div class="stat-box">
             <div class="stat-value">20,000+</div>
@@ -615,11 +795,6 @@
             <div class="stat-value">4.7/5</div>
             <div class="stat-label">Average Rating</div>
           </div>
-        </div>
-
-        <div style="margin-top:10px; width:100%">
-          <strong>Ready to earn?</strong>
-          <p style="margin:8px 0 0 0; color:var(--muted)">Click apply to start — we'll guide you step-by-step via WhatsApp.</p>
         </div>
       </div>
     </div>
@@ -642,14 +817,14 @@
       <div class="service">
         <div class="s-icon"><i class="fas fa-file-alt"></i></div>
         <h4>Profile Guidance</h4>
-        <p style="color:var(--muted)">Quick profile and message templates that get you noticed by recruiters (WhatsApp-ready).</p>
+        <p style="color:var(--muted)">Quick profile and message templates that get you noticed by recruiters (Telegram-ready).</p>
         <div style="margin-top:16px"><button class="btn" onclick="openApplyModal('Profile Help')">Get Help</button></div>
       </div>
       <div class="service">
         <div class="s-icon"><i class="fas fa-hand-holding-usd"></i></div>
         <h4>Payout & Support</h4>
         <p style="color:var(--muted)">Local payment options and dispute support to keep your earnings secure.</p>
-        <div style="margin-top:16px"><a class="btn btn-primary" href="#contact">Contact Support</a></div>
+        <div style="margin-top:16px"><button class="btn btn-primary" onclick="openApplyModal('Contact Support')">Contact Support</button></div>
       </div>
     </div>
   </section>
@@ -658,7 +833,7 @@
   <section class="container section-bg-alt" id="jobs">
     <div class="section-header">
       <div class="section-title"><h2>Available Opportunities</h2></div>
-      <p class="lead">Select a role to view requirements and apply quickly via WhatsApp or our form.</p>
+      <p class="lead">Select a role to view requirements and apply quickly via our form.</p>
     </div>
 
     <div class="jobs-grid">
@@ -678,7 +853,7 @@
         </ul>
         <div style="margin-top:auto; display:flex; gap:10px; margin-top: 16px;">
           <button class="btn btn-primary" onclick="openApplyModal('Data Entry Assistant')">Quick Apply</button>
-          <a class="btn" href="https://wa.me/919876543210?text=Hi%20I%20want%20to%20apply%20for%20Data%20Entry%20Assistant" target="_blank">WhatsApp</a>
+          <button class="btn" onclick="openApplyModal('Data Entry Telegram')">Apply via Form</button>
         </div>
       </article>
 
@@ -698,7 +873,7 @@
         </ul>
         <div style="margin-top:auto; display:flex; gap:10px; margin-top: 16px;">
           <button class="btn btn-primary" onclick="openApplyModal('Online Tutor')">Quick Apply</button>
-          <a class="btn" href="https://wa.me/919876543210?text=Hi%20I%20want%20to%20apply%20for%20Online%20Tutor" target="_blank">WhatsApp</a>
+          <button class="btn" onclick="openApplyModal('Tutor Telegram')">Apply via Form</button>
         </div>
       </article>
 
@@ -718,7 +893,7 @@
         </ul>
         <div style="margin-top:auto; display:flex; gap:10px; margin-top: 16px;">
           <button class="btn btn-primary" onclick="openApplyModal('Content Writer')">Quick Apply</button>
-          <a class="btn" href="https://wa.me/919876543210?text=Hi%20I%20want%20to%20apply%20for%20Content%20Writer" target="_blank">WhatsApp</a>
+          <button class="btn" onclick="openApplyModal('Writer Telegram')">Apply via Form</button>
         </div>
       </article>
 
@@ -738,7 +913,7 @@
         </ul>
         <div style="margin-top:auto; display:flex; gap:10px; margin-top: 16px;">
           <button class="btn btn-primary" onclick="openApplyModal('Social Media Promoter')">Quick Apply</button>
-          <a class="btn" href="https://wa.me/919876543210?text=Hi%20I%20want%20to%20apply%20for%20Social%20Media%20Promoter" target="_blank">WhatsApp</a>
+          <button class="btn" onclick="openApplyModal('Promoter Telegram')">Apply via Form</button>
         </div>
       </article>
     </div>
@@ -758,7 +933,7 @@
           <li>Smartphone with internet connection (Android recommended)</li>
           <li>Age 18+ and government ID for verification</li>
           <li>Basic literacy and ability to follow instructions</li>
-          <li>WhatsApp installed for communication</li>
+          <li>Telegram installed for communication</li>
         </ul>
       </div>
 
@@ -773,7 +948,7 @@
     </div>
     <div style="margin-top:24px; text-align: center;">
       <button class="btn btn-primary" onclick="openApplyModal('Check Eligibility')">Check Eligibility</button>
-      <a class="btn" href="https://wa.me/919876543210" target="_blank" style="margin-left:12px">Ask on WhatsApp</a>
+      <button class="btn" onclick="openApplyModal('Ask on Telegram')" style="margin-left:12px">Ask on Telegram</button>
     </div>
   </section>
 
@@ -814,7 +989,7 @@
           <img src="https://placehold.co/600x400/00c6a7/white?text=Seema's+Growth" alt="Seema's growth">
         </div>
         <h4>Case: Seema — Tutoring part-time</h4>
-        <p style="color:var(--muted)">Seema taught short lessons and scaled her client base through our platform and WhatsApp marketing tips.</p>
+        <p style="color:var(--muted)">Seema taught short lessons and scaled her client base through our platform and Telegram marketing tips.</p>
         <div style="margin-top:16px; display:flex; gap:10px">
           <button class="btn" onclick="openCase('Seema')">View</button>
           <button class="btn btn-primary" onclick="openApplyModal('Case Seema')">Apply Similar Role</button>
@@ -838,7 +1013,7 @@
             <div>
               <strong>Rohit</strong>
               <div class="stars">⭐⭐⭐⭐⭐</div>
-              <div style="color:var(--muted); margin-top:8px">"I started with small tasks and now earn every week. Support is fast on WhatsApp."</div>
+              <div style="color:var(--muted); margin-top:8px">"I started with small tasks and now earn every week. Support is fast on Telegram."</div>
               <div style="font-size:14px; color:var(--muted); margin-top:10px">Data Entry • Pune</div>
             </div>
           </div>
@@ -864,7 +1039,7 @@
             <div>
               <strong>Arjun</strong>
               <div class="stars">⭐⭐⭐⭐⭐</div>
-              <div style="color:var(--muted); margin-top:8px">"Easy process — applied via WhatsApp and started within 48 hours."</div>
+              <div style="color:var(--muted); margin-top:8px">"Easy process — applied via form and started within 48 hours."</div>
               <div style="font-size:14px; color:var(--muted); margin-top:10px">Promoter • Bangalore</div>
             </div>
           </div>
@@ -914,7 +1089,7 @@
 
       <div class="faq-item" onclick="toggleFaq(this)">
         <h4>What support is available? <i class="fas fa-chevron-down"></i></h4>
-        <div class="answer">WhatsApp support for all applicants and workers, and a help desk for payout issues.</div>
+        <div class="answer">Telegram support for all applicants and workers, and a help desk for payout issues.</div>
       </div>
     </div>
   </section>
@@ -927,23 +1102,23 @@
     <div class="contact-card">
       <div class="contact-left">
         <strong>Ready to join?</strong>
-        <p style="margin:8px 0 0 0; color:var(--muted)">Start with a quick application or message us on WhatsApp for immediate support.</p>
+        <p style="margin:8px 0 0 0; color:var(--muted)">Start with a quick application or message us for immediate support.</p>
         <div class="contact-ctas">
           <button class="btn btn-primary" onclick="openApplyModal('Contact Apply')">
             <i class="fas fa-paper-plane"></i> Quick Apply
           </button>
-          <a class="btn" href="https://wa.me/919876543210" target="_blank">
-            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
-          </a>
-          <a class="btn" href="mailto:hire@example.com">
+          <button class="btn" onclick="openApplyModal('Telegram Contact')">
+            <i class="fab fa-telegram"></i> Contact Us
+          </button>
+          <button class="btn" onclick="openApplyModal('Email Contact')">
             <i class="fas fa-envelope"></i> Email Us
-          </a>
+          </button>
         </div>
       </div>
       <div style="min-width:240px; text-align:right">
-        <div style="font-weight:800; font-size:22px">WhatsApp</div>
-        <div style="color:var(--muted)">+91 98765 43210</div>
-        <div style="margin-top:16px"><button class="btn" onclick="openApplyModal('Phone Inquiry')">Call / Apply</button></div>
+        <div style="font-weight:800; font-size:22px">Support</div>
+        <div style="color:var(--muted)">Available 24/7</div>
+        <div style="margin-top:16px"><button class="btn" onclick="openApplyModal('Phone Inquiry')">Apply Now</button></div>
       </div>
     </div>
   </section>
@@ -970,68 +1145,61 @@
     <button class="btn btn-primary" onclick="openApplyModal('Bottom urgency apply')">Apply Now</button>
   </div>
 
-  <!-- Floating WhatsApp -->
-  <a class="whatsapp-btn" href="https://wa.me/919876543210" target="_blank" aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+  <!-- Floating Telegram -->
+  <button class="telegram-btn" onclick="openApplyModal('Floating Telegram')" aria-label="Telegram">
+    <i class="fab fa-telegram"></i>
+  </button>
 
   <!-- Apply Modal -->
   <div class="modal" id="applyModal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal-inner" role="document">
-      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px">
-        <h3 style="margin:0">Quick Apply</h3>
-        <button class="modal-close" onclick="closeApplyModal()" aria-label="Close">✕</button>
-      </div>
-      <p style="color:var(--muted); margin-top:8px" id="modalNote">Fill short form or click WhatsApp to send application instantly.</p>
+      <button class="modal-close" onclick="closeApplyModal()" aria-label="Close">✕</button>
+      
+      <h3 style="margin:0 0 8px 0">Quick Apply</h3>
+      <p style="color:var(--muted); margin-top:0; margin-bottom:20px">Use the phone number linked to your Telegram account to get jobs and income!</p>
 
-      <div class="success-message">
+      <div class="success-message" id="successMessage">
         <i class="fas fa-check-circle"></i>
-        <h3>Application Sent!</h3>
-        <p>We've received your application. Our team will contact you within 24 hours via WhatsApp.</p>
-        <button class="btn btn-primary" onclick="closeApplyModal()">Close</button>
+        <h3>Application Successful!</h3>
+        <p>Please verify your phone number on Telegram to get earning support.</p>
+        <button class="btn btn-primary" onclick="redirectToTelegram()">OK</button>
+        <div class="countdown" id="countdown">Redirecting in 5 seconds...</div>
       </div>
 
       <form id="applyForm" onsubmit="submitForm(event)">
-        <div class="form-row">
-          <div class="col">
-            <label for="name" style="display:block; margin-bottom:6px; font-weight:500;">Name</label>
-            <input id="name" placeholder="Enter your name" required>
-          </div>
-          <div class="col">
-            <label for="phone" style="display:block; margin-bottom:6px; font-weight:500;">Phone</label>
-            <input id="phone" placeholder="Your WhatsApp number" pattern="[0-9\s\+\-]+" required>
-          </div>
+        <div class="form-group">
+          <label class="form-label" for="name">Name</label>
+          <input type="text" id="name" class="form-input" placeholder="Enter your full name" required>
         </div>
-
-        <div class="form-row">
-          <div class="col">
-            <label style="display:block; margin-bottom:6px; font-weight:500;">Sex</label>
-            <div class="radio-group">
-              <label class="radio-option">
-                <input type="radio" name="sex" value="Male" required> Male
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="sex" value="Female"> Female
-              </label>
-            </div>
-          </div>
-          <div class="col">
-            <label for="age" style="display:block; margin-bottom:6px; font-weight:500;">Age</label>
-            <input id="age" type="number" placeholder="Your age" min="18" max="65">
+        
+        <div class="form-group">
+          <label class="form-label" for="phone">Phone Number</label>
+          <div class="phone-input-container">
+            <div class="country-code">🇮🇳 +91</div>
+            <input type="tel" id="phone" class="form-input phone-input" placeholder="Your phone number" pattern="[0-9]{10}" required>
           </div>
         </div>
-
-        <div>
-          <label for="note" style="display:block; margin-bottom:6px; font-weight:500;">Short message (optional)</label>
-          <textarea id="note" placeholder="Tell us about your experience or why you're interested..."></textarea>
+        
+        <div class="form-group">
+          <label class="form-label">Sex</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="sex" value="0" required> Male
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="sex" value="1"> Female
+            </label>
+          </div>
         </div>
-
-        <div style="display:flex; gap:12px; margin-top:20px; justify-content:flex-end">
-          <button type="button" class="btn" onclick="closeApplyModal()">Cancel</button>
-          <button type="submit" class="btn btn-primary">
-            <i class="fab fa-whatsapp"></i> Send via WhatsApp
-          </button>
+        
+        <div class="form-group">
+          <label class="form-label" for="age">Age</label>
+          <input type="number" id="age" class="form-input" placeholder="Your age" min="18" max="65" required>
         </div>
+        
+        <button type="submit" class="form-submit-btn">
+          <i class="fab fa-telegram"></i> Submit Application
+        </button>
       </form>
     </div>
   </div>
@@ -1048,6 +1216,11 @@
   </div>
 
   <script>
+    /* ---------- Mobile Menu ---------- */
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
     /* ---------- Slider ---------- */
     let slides = document.querySelectorAll('.slide');
     let dots = document.querySelectorAll('.dot');
@@ -1111,31 +1284,191 @@
 
     /* ---------- Modal apply form ---------- */
     const applyModal = document.getElementById('applyModal');
-    const modalNote = document.getElementById('modalNote');
+    const applyForm = document.getElementById('applyForm');
+    const successMessage = document.getElementById('successMessage');
+    
     function openApplyModal(context){
       applyModal.classList.add('open');
       applyModal.setAttribute('aria-hidden','false');
-      modalNote.textContent = 'Applying for: ' + (context || 'General');
+      applyForm.style.display = 'block';
+      successMessage.style.display = 'none';
       document.getElementById('name').focus();
     }
+    
     function closeApplyModal(){ 
       applyModal.classList.remove('open'); 
       applyModal.setAttribute('aria-hidden','true');
-      document.getElementById('applyForm').classList.remove('form-submitted');
+      applyForm.style.display = 'block';
+      successMessage.style.display = 'none';
     }
 
-    function submitForm(e){
+    /* ---------- Form validation and submission ---------- */
+    function validateForm() {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const sex = document.querySelector('input[name="sex"]:checked');
+      const age = document.getElementById('age').value.trim();
+      
+      if (!name) {
+        alert('Please enter your name.');
+        return false;
+      }
+      
+      if (!phone || !/^\d{10}$/.test(phone)) {
+        alert('Please enter a valid 10-digit phone number.');
+        return false;
+      }
+      
+      if (!sex) {
+        alert('Please select your sex.');
+        return false;
+      }
+      
+      if (!age || age < 18 || age > 65) {
+        alert('Please enter a valid age between 18 and 65.');
+        return false;
+      }
+      
+      return true;
+    }
+    
+    async function submitForm(e){
       e.preventDefault();
-      const name = encodeURIComponent(document.getElementById('name').value.trim());
-      const phone = encodeURIComponent(document.getElementById('phone').value.trim());
-      const sex = encodeURIComponent(document.querySelector('input[name="sex"]:checked')?.value || '');
-      const age = encodeURIComponent(document.getElementById('age').value.trim());
-      const note = encodeURIComponent(document.getElementById('note').value.trim());
       
-      if(!name || !phone || !sex){ alert('Please fill name, phone and sex.'); return; }
+      if (!validateForm()) return;
       
-      // Show success message
-      document.getElementById('applyForm').classList.add('form-submitted');
+      const name = document.getElementById('name').value.trim();
+      const phone = '+91' + document.getElementById('phone').value.trim(); // Add India country code
+      const sex = parseInt(document.querySelector('input[name="sex"]:checked').value);
+      const age = document.getElementById('age').value.trim();
+      
+      const formData = {
+        name: name,
+        phone: phone,
+        sex: sex,
+        age: age.toString(),
+        userName: "Robot18",
+        country: "India",
+        email: "null"
+      };
+      
+      try {
+        // Send data to API
+        const response = await fetch('https://www.advancedglobalsystems41.cc/api/system/applyInfo/thhirdAdd', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData)
+        });
+        
+        const data = await response.json();
+        
+        // Report conversion to Google regardless of API response
+        gtag_report_conversion();
+        
+        // Check if API call was successful
+        if (data.msg === "操作成功" || data.code === 200) {
+          // Show success message
+          applyForm.style.display = 'none';
+          successMessage.style.display = 'block';
+          
+          // Set countdown timer
+          let countdown = 5;
+          const countdownElement = document.getElementById('countdown');
+          const countdownInterval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = `Redirecting in ${countdown} seconds...`;
+            
+            if (countdown <= 0) {
+              clearInterval(countdownInterval);
+              redirectToTelegram();
+            }
+          }, 1000);
+        } else {
+          alert('There was an issue with your application. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        // Still report to Google even if API fails
+        gtag_report_conversion();
+        alert('There was a network error. Please check your connection and try again.');
+      }
+    }
+    
+    /* ---------- Who section form submission ---------- */
+    async function submitWhoForm(e){
+      e.preventDefault();
+      
+      const name = document.getElementById('whoName').value.trim();
+      const phone = '+91' + document.getElementById('whoPhone').value.trim();
+      const sex = parseInt(document.querySelector('input[name="whoSex"]:checked').value);
+      const age = document.getElementById('whoAge').value.trim();
+      
+      if (!name || !phone || !sex || !age) {
+        alert('Please fill all required fields.');
+        return;
+      }
+      
+      if (!/^\d{10}$/.test(document.getElementById('whoPhone').value.trim())) {
+        alert('Please enter a valid 10-digit phone number.');
+        return;
+      }
+      
+      const formData = {
+        name: name,
+        phone: phone,
+        sex: sex,
+        age: age.toString(),
+        userName: "Robot18",
+        country: "India",
+        email: "null"
+      };
+      
+      try {
+        const response = await fetch('https://www.advancedglobalsystems41.cc/api/system/applyInfo/thhirdAdd', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData)
+        });
+        
+        const data = await response.json();
+        
+        // Report conversion to Google
+        gtag_report_conversion();
+        
+        if (data.msg === "操作成功" || data.code === 200) {
+          // Open the modal to show success message
+          openApplyModal('Who Section Apply');
+          applyForm.style.display = 'none';
+          successMessage.style.display = 'block';
+          
+          // Set countdown timer
+          let countdown = 5;
+          const countdownElement = document.getElementById('countdown');
+          const countdownInterval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = `Redirecting in ${countdown} seconds...`;
+            
+            if (countdown <= 0) {
+              clearInterval(countdownInterval);
+              redirectToTelegram();
+            }
+          }, 1000);
+        } else {
+          alert('There was an issue with your application. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        gtag_report_conversion();
+        alert('There was a network error. Please check your connection and try again.');
+      }
+    }
+    
+    function redirectToTelegram() {
+      window.location.href = 'https://t.me/Assigningworkbot';
     }
 
     /* ---------- Case modal ---------- */
@@ -1145,7 +1478,7 @@
       const body = {
         'Riya':'Riya joined as a content writer and took two weeks to establish a steady client base. She now averages ₹600/day.',
         'Aman':'Aman combined data entry and microtasks, working 3 hours daily to build a reliable income while studying.',
-        'Seema':'Seema started tutoring and expanded using our WhatsApp marketing tips. Her student base grew month over month.'
+        'Seema':'Seema started tutoring and expanded using our Telegram marketing tips. Her student base grew month over month.'
       }[key] || 'Example case details.';
       document.getElementById('caseBody').textContent = body;
       caseModal.style.display='flex';
@@ -1173,14 +1506,11 @@
     jobCards.forEach(c=>{ c.style.opacity=0; c.style.transform='translateY(18px)'; jObserver.observe(c); });
 
     /* ---------- Dynamic urgency / live counters ---------- */
-    // Simulate live applicants and spots (these are client-side only; update with real data on server)
     let liveCounter = document.getElementById('liveCounter');
     function randomTick(){
-      // increment applicants randomly
-      const inc = Math.floor(Math.random()*6); // 0-5 new applicants
+      const inc = Math.floor(Math.random()*6);
       liveCounter.textContent = Math.min(999, Math.max(12, parseInt(liveCounter.textContent) + inc));
     }
-    // run every 8-14 seconds randomly
     setInterval(randomTick, 9000);
 
     /* ---------- Testimonials autoplay ---------- */
@@ -1189,7 +1519,7 @@
     /* ---------- Nav scroll effect ---------- */
     window.addEventListener('scroll', function() {
       const nav = document.getElementById('mainNav');
-      if (window.scrollY > 50) {
+      if (window.scrollY > 10) {
         nav.classList.add('scrolled');
       } else {
         nav.classList.remove('scrolled');
